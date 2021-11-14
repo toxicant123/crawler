@@ -89,9 +89,14 @@ public class HttpUtils {
         //使用HttpClient
 
         CloseableHttpClient httpClient = HttpClients.custom().setConnectionManager(cm).build();
-        HttpGet httpGet = new HttpGet(url);
+        HttpGet httpGet = null;
+        try {
+            httpGet = new HttpGet(url);
 
-        httpGet.setConfig(getConfig());
+            httpGet.setConfig(getConfig());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         CloseableHttpResponse response = null;
         try {

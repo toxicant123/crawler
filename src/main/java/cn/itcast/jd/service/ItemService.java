@@ -1,6 +1,7 @@
 package cn.itcast.jd.service;
 
 import cn.itcast.jd.pojo.Item;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
