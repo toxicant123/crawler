@@ -46,6 +46,7 @@ public class HttpUtils {
         CloseableHttpClient httpClient = HttpClients.custom().setConnectionManager(cm).build();
         HttpGet httpGet = new HttpGet(url);
 
+        httpGet.setHeader("User-Agent","Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36");
         httpGet.setConfig(getConfig());
 
         CloseableHttpResponse response = null;
@@ -107,7 +108,7 @@ public class HttpUtils {
                     String picName = UUID.randomUUID().toString() + extName;
 
                     //声明outputStream
-                    OutputStream outputStream = new FileOutputStream(new File("C:\\Users\\13655\\Desktop\\images" + picName));
+                    OutputStream outputStream = new FileOutputStream(new File("C:\\Users\\13655\\Desktop\\images\\" + picName));
                     response.getEntity().writeTo(outputStream);
                     return picName;
 
